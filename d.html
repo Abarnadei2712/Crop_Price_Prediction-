@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Insights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://storage.needpix.com/rsynced_images/paddy-field-3864340_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(0, 128, 0, 0.8); /* Dark green with transparency */
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Circular logo */
+            margin-right: 10px;
+        }
+
+        .navbar h1 {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #d4f1d4; /* Light green on hover */
+        }
+
+        /* Home Page Layout */
+        .home-container {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .home-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .home-title {
+            font-size: 48px;
+            margin-top: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .home-buttons {
+            margin-top: 30px;
+        }
+
+        .home-buttons a {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .home-buttons a:hover {
+            background-color: #4cae4c;
+        }
+
+        /* About Section */
+        .about-section {
+            display: none;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Feedback Section */
+        .feedback-container {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 128, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <!-- Logo Image -->
+            <img src="D:logo.jpg" alt="Logo">
+            <h1>Agriculture Insights</h1>
+        </div>
+        <div class="navbar-links">
+            <a href="#home" onclick="showHome()">Home</a>
+            <a href="#about" onclick="showAbout()">About</a>
+            <a href="#feedback" onclick="showFeedback()">Feedback</a>
+            <a href="#logout" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div class="home-container" id="home-container">
+        <img src="D:logo.jpg" alt="Home Logo">
+        <div class="home-title">Welcome to Agriculture Insights</div>
+        <div class="home-buttons">
+            <!-- Add buttons here -->
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container about-section" id="about-container">
+        <h2>About Agriculture Insights</h2>
+        <p>
+            Agriculture Insights is a platform that leverages data to predict crop prices based 
+            on weather conditions, rainfall, soil properties, and market trends. Our goal is to 
+            empower farmers with insights that allow them to plan their crops effectively and 
+            make informed decisions about harvesting and selling.
+        </p>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="container feedback-container" id="feedback-container">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <textarea id="feedback-text" rows="4" placeholder="Share your thoughts..." required></textarea>
+            <input type="submit" value="Post Feedback">
+        </form>
+
+        <div class="feedback-list" id="feedback-list">
+            <!-- Feedback items will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Agriculture Insights. All Rights Reserved.
+    </footer>
+
+    <script>
+        function showHome() {
+            document.getElementById('home-container').style.display = 'block';
+            document.getElementById('about-container').style.display = 'none';
+            document.getElementById('feedback-container').style.display = 'none';
+        }
+
+        function showAbout() {
+            document.getElementById('home-container').style.display = 'none';
+            document.getElementById('about-container').style.display = 'block';
+            document.getElementById('feedback-container').style.display = 'none';
+        }
+
+        function showFeedback() {
+            document.getElementById('home-container').style.display = 'none';
+            document.getElementById('about-container').style.display = 'none';
+            document.getElementById('feedback-container').style.display = 'block';
+        }
+
+        function logout() {
+            alert('You have been logged out!');
+            window.location.href = '/';
+        }
+
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedbackText = document.getElementById('feedback-text').value;
+            if (feedbackText.trim() === '') return;
+            const feedbackItem = document.createElement('div');
+            feedbackItem.innerHTML = `<p>${feedbackText}</p>`;
+            document.getElementById('feedback-list').prepend(feedbackItem);
+            document.getElementById('feedback-text').value = '';
+        });
+    </script>
+
+</body>
+</html>
