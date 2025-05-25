@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Insights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://storage.needpix.com/rsynced_images/paddy-field-3864340_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(0, 128, 0, 0.8); /* Dark green with transparency */
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Circular logo */
+            margin-right: 10px;
+        }
+
+        .navbar h1 {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #d4f1d4; /* Light green on hover */
+        }
+
+        /* Home Page Layout */
+        .home-container {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .home-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .home-title {
+            font-size: 48px;
+            margin-top: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .home-buttons {
+            margin-top: 30px;
+        }
+
+        .home-buttons a {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .home-buttons a:hover {
+            background-color: #4cae4c;
+        }
+
+        /* About Section */
+        .about-section {
+            display: none;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Feedback Section */
+        .feedback-container {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 128, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <!-- Logo Image -->
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/004/882/989/small_2x/agriculture-farm-logo-vector.jpg" alt="Crops">
+            <h1>Agriculture Insights</h1>
+        </div>
+        <div class="navbar-links">
+            <a href="#home" onclick="showHome()">Home</a>
+            <a href="#about" onclick="showAbout()">About</a>
+            <a href="#feedback" onclick="showFeedback()">Feedback</a>
+            <a href="#logout" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div class="home-container" id="home-container">
+        <div class="home-title">Welcome to Agriculture Insights</div>
+        <div class="home-buttons">
+            <!-- Add buttons here -->
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container about-section" id="about-container">
+        <h2>About Agriculture Insights</h2>
+        <p>
+            Agriculture Insights is a platform that leverages data to predict crop prices based 
+            on weather conditions, rainfall, soil properties, and market trends. Our goal is to 
+            empower farmers with insights that allow them to plan their crops effectively and 
+            make informed decisions about harvesting and selling.
+            Agriculture Insights
+At Agriculture Insights, we are committed to empowering farmers and agricultural stakeholders with data-driven solutions to make smarter decisions. Our platform leverages advanced machine learning techniques and real-time data to forecast crop prices, helping users stay ahead in a dynamic market. Whether you’re a farmer, trader, or policymaker, Agriculture Insights provides essential insights for planning, productivity, and profitability.
+
+Our goal is to simplify agricultural forecasting by providing an easy-to-use interface that delivers accurate predictions on crop yields and prices based on various factors such as district, crop type, and market trends.
+
+What We Offer:
+Crop Price Prediction: Forecast prices based on location, year, and crop type.
+Market Trends: Access real-time data to stay updated on agricultural market trends.
+User-Friendly Tools: Simple input forms designed for all levels of users, with features to improve farming decisions.
+Data-Backed Insights: All predictions are driven by advanced models and historical data analysis to ensure reliable results.
+Our Vision:
+We envision a world where agriculture becomes more sustainable, predictable, and profitable through the use of technology. By equipping farmers and stakeholders with meaningful insights, we aim to bridge the gap between market fluctuations and farming strategies.
+
+Our Mission:
+Our mission is to use data and technology to:
+
+Improve agricultural productivity and profitability.
+Support farmers and traders with reliable forecasts.
+Promote sustainable agricultural practices.
+We believe in fostering a transparent and efficient agricultural ecosystem that benefits everyone—from producers to consumers. Join us on our mission to transform agriculture with knowledge and technology.
+
+This summary emphasizes the purpose, mission, and value of your platform. Feel free to adjust it according to the goals or features specific to your platform!
+
+        </p>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="container feedback-container" id="feedback-container">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <textarea id="feedback-text" rows="4" placeholder="Share your thoughts..." required></textarea>
+            <input type="submit" value="Post Feedback">
+        </form>
+
+        <div class="feedback-list" id="feedback-list">
+            <!-- Feedback items will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Agriculture Insights. All Rights Reserved.
+    </footer>
+
+    <script>
+        function showHome() {
+            document.getElementById('home-container').style.display = 'block';
+            document.getElementById('about-container').style.display = 'none';
+            document.getElementById('feedback-container').style.display = 'none';
+        }
+
+        function showAbout() {
+            document.getElementById('home-container').style.display = 'none';
+            document.getElementById('about-container').style.display = 'block';
+            document.getElementById('feedback-container').style.display = 'none';
+        }
+
+        function showFeedback() {
+            document.getElementById('home-container').style.display = 'none';
+            document.getElementById('about-container').style.display = 'none';
+            document.getElementById('feedback-container').style.display = 'block';
+        }
+
+        function logout() {
+            alert('You have been logged out!');
+            window.location.href = '/';
+        }
+
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const feedbackText = document.getElementById('feedback-text').value;
+            if (feedbackText.trim() === '') return;
+            const feedbackItem = document.createElement('div');
+            feedbackItem.innerHTML = `<p>${feedbackText}</p>`;
+            document.getElementById('feedback-list').prepend(feedbackItem);
+            document.getElementById('feedback-text').value = '';
+        });
+    </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Insights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://storage.needpix.com/rsynced_images/paddy-field-3864340_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        select, input[type="text"], input[type="password"], input[type="email"], 
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        .forgot-password {
+            text-align: right;
+        }
+
+        .form-switch {
+            text-align: center;
+        }
+
+        .form-switch a {
+            color: #5cb85c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #results p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Agriculture Insights</h1>
+
+<div class="container">
+    {% if registered %}
+        <div id="results">
+            <p>Registration successful! Redirecting to the input form...</p>
+        </div>
+        <script> setTimeout(() => window.location.href = "/input", 2000); </script>
+
+    {% elif input %}
+        <form action="/predict" method="POST">
+            <h2>Crop Prediction</h2>
+            <label for="crop_type">Select Crop Type:</label>
+            <select id="crop_type" name="crop_type" required>
+                <option value="">-- Select Crop Type --</option>
+                <!-- Full crop type options -->
+                <option value="rice">Rice</option>
+                <option value="wheat">Wheat</option>
+                <option value="maize">Maize</option>
+                <option value="sorghum">Sorghum</option>
+                <option value="pearl millet">Pearl Millet</option>
+                <option value="ragi">Ragi</option>
+                <option value="redgram">Redgram</option>
+                <option value="soyabean">Soyabean</option>
+                <option value="groundnut">Groundnut</option>
+                <option value="cotton">Cotton</option>
+                <option value="sugarcane">Sugarcane</option>
+                <option value="tomato">Tomato</option>
+                <option value="onion">Onion</option>
+                <option value="chillies">Chillies</option>
+                <option value="cabbage">Cabbage</option>
+                <option value="watermelon">Watermelon</option>
+                <option value="peas">Peas</option>
+                <option value="carrot">Carrot</option>
+                <option value="beetroot">Beetroot</option>
+                <option value="cauliflower">Cauliflower</option>
+                <option value="sorghum">Sorghum</option>
+                <option value="pearl_millet">Pearl Millet</option>
+                <option value="ragi">Ragi</option>
+                <option value="panivaragu">Panivaragu</option>
+                <option value="samai">Samai</option>
+                <option value="thinai">Thinai</option>
+                <option value="varagu">Varagu</option>
+                <option value="kudiraivali">Kudiraivali</option>
+                <option value="blackgram">Blackgram</option>
+                <option value="greengram">Greengram</option>
+                <option value="cowpea">Cowpea</option>
+                <option value="gardenlablab">Garden Lablab</option>
+                <option value="fieldlablab">Field Lablab</option>
+                <option value="bengalgram">Bengalgram</option>
+                <option value="horsegram">Horsegram</option>
+                <option value="redgram">Redgram</option>
+                <option value="soyabean">Soyabean</option>
+                <option value="swordbean">Swordbean</option>
+                <option value="groundnut">Groundnut</option>
+                <option value="sunflower">Sunflower</option>
+                <option value="gingely">Gingely</option>
+                <option value="niger">Niger</option>
+                <option value="safflower">Safflower</option>
+                <option value="castor">Castor</option>
+                <option value="cotton">Cotton</option>
+                <option value="jute">Jute</option>
+                <option value="sugarcane">Sugarcane</option>
+                <option value="sweet_sorghum">Sweet Sorghum</option>
+                <option value="sugarbeet">Sugarbeet</option>
+                <option value="fodder_cholam">Fodder Cholam</option>
+                <option value="fodder_cumbu">Fodder Cumbu</option>
+                <option value="fodder_maize">Fodder Maize</option>
+                <option value="cumbu_napier_hybrid">Cumbu Napier Hybrid</option>
+                <option value="guinea_grass">Guinea Grass</option>
+                <option value="kollukattai_pullu">Kollukattai Pullu</option>
+                <option value="kudirai_masi">Kudirai Masi</option>
+                <option value="velimasal">Velimasal</option>
+                <option value="fodder_cowpea">Fodder Cowpea</option>
+                <option value="muyal_masal">Muyal Masal</option>
+                <option value="soundal">Soundal</option>
+                <option value="tobacco">Tobacco</option>
+                <option value="tomato">Tomato</option>
+                <option value="onion">Onion</option>
+                <option value="chillies">Chillies</option>
+                <option value="cabbage">Cabbage</option>
+                <option value="bhendi">Bhendi</option>
+                <option value="brinjal">Brinjal</option>
+                <option value="capsicum">Capsicum</option>
+                <option value="paprika">Paprika</option>
+                <option value="pumpkin">Pumpkin</option>
+                <option value="snake_gourd">Snake Gourd</option>
+                <option value="ribbed_gourd">Ribbed Gourd</option>
+                <option value="bottle_gourd">Bottle Gourd</option>
+                <option value="bitter_gourd">Bitter Gourd</option>
+                <option value="ash_gourd">Ash Gourd</option>
+                <option value="cucumber">Cucumber</option>
+                <option value="gherkins">Gherkins</option>
+                <option value="watermelon">Watermelon</option>
+                <option value="muskmelon">Muskmelon</option>
+                <option value="tinda">Tinda</option>
+                <option value="chowchow">Chowchow</option>
+                <option value="cluster_bean">Cluster Bean</option>
+                <option value="vegetable_cowpea">Vegetable Cowpea</option>
+                <option value="lablab">Lablab</option>
+                <option value="french_bean">French Bean</option>
+                <option value="broadbean">Broadbean</option>
+                <option value="peas">Peas</option>
+                <option value="annual_moringa">Annual Moringa</option>
+                <option value="carrot">Carrot</option>
+                <option value="beetroot">Beetroot</option>
+                <option value="radish">Radish</option>
+                <option value="colocasia">Colocasia</option>
+                <option value="dioscorea">Dioscorea</option>
+                <option value="sweet_potato">Sweet Potato</option>
+                <option value="chinese_potato">Chinese Potato</option>
+                <option value="tapioca">Tapioca</option>
+                <option value="elephant_foot_yam">Elephant Foot Yam</option>
+                <option value="amaranthus">Amaranthus</option>
+                <option value="curry_leaf">Curry Leaf</option>
+                <option value="celery">Celery</option>
+                <option value="cauliflower">Cauliflower</option>
+                <option value="small_onion">Small Onion</option>
+                <option value="bellary_onion">Bellary Onion</option>
+                <option value="asparagus">Asparagus</option>
+                <option value="basella">Basella</option>
+                <option value="bread_fruit">Bread Fruit</option>
+                <option value="brussels_sprout">Brussels Sprout</option>
+                <option value="butter_bean">Butter Bean</option>
+                <option value="phaseolus_lunatus">Phaseolus Lunatus</option>
+                <option value="celery">Celery</option>
+                <option value="ceylon_spinach">Ceylon Spinach</option>
+                <option value="chakravathi_keerai">Chakravathi Keerai</option>
+                <option value="chekurmanis">Chekurmanis</option>
+                <option value="chinese_cabbage">Chinese Cabbage</option>
+                <option value="coccinia">Coccinia</option>
+                <option value="knol-khol">Knol-khol</option>
+                <option value="lettuce">Lettuce</option>
+                <option value="mint">Mint</option>
+                <option value="palak">Palak</option>
+                <option value="rhubarb">Rhubarb</option>
+                <option value="turnip">Turnip</option>
+                <option value="winged_bean">Winged Bean</option>
+                <!-- Add more crop types as needed -->
+            </select>
+
+            <label for="district">Select District:</label>
+            <select id="district" name="district" required>
+                <option value="">-- Select District --</option>
+                <!-- Full district options -->
+                <option value="ARIYALUR">Ariyalur</option>
+                <option value="CAUVERY">CAUVERY</option>
+                <option value="CHENGLEPUT">CHENGLEPUT</option>
+                <option value="COIMBATORE">COIMBATORE</option>
+                <option value="CUDDALORE">CUDDALORE</option>
+                <option value="DHARMAPURI">DHARMAPURI</option>
+                <option value="DINDIGUL">DINDIGUL</option>
+                <option value="ERODE">ERODE</option>
+                <option value="HILLY REGIONS OF SHEVROY">HILLY REGIONS OF SHEVROY</option>
+                <option value="JAWAD HILLS">JAWAD HILLS</option>
+                <option value="KANCHEEPURAM">KANCHEEPURAM</option>
+                <option value="KANYAKUMARI">KANYAKUMARI</option>
+                <option value="KARUR">KARUR</option>
+                <option value="KOLLI HILLS">KOLLI HILLS</option>
+                <option value="KRISHNAGIRI">KRISHNAGIRI</option>
+                <option value="MADURAI">MADURAI</option>
+                <option value="NAGAPATTINAM">NAGAPATTINAM</option>
+                <option value="NAMAKAL">NAMAKAL</option>
+                <option value="PERAMBALUR">PERAMBALUR</option>
+                <option value="PUDUKKOTTAI">PUDUKKOTTAI</option>
+                <option value="RAMANATHANPURAM">RAMANATHANPURAM</option>
+                <option value="SALEM">SALEM</option>
+                <option value="SIVAGANGAI">SIVAGANGAI</option>
+                <option value="TANJORE">TANJORE</option>
+                <option value="THALAVADI HILLS">THALAVADI HILLS</option>
+                <option value="THE NILGRIS">THE NILGRIS</option>
+                <option value="THENI">THENI</option>
+                <option value="THIRUCHIRAPALLI">THIRUCHIRAPALLI</option>
+                <option value="THIRUNELVELI">THIRUNELVELI</option>
+                <option value="THIRUPPUR">THIRUPPUR</option>
+                <option value="THIRUVALLUR">THIRUVALLUR</option>
+                <option value="THIRUVANNAMALAI">THIRUVANNAMALAI</option>
+                <option value="THOOTHUKUDI">THOOTHUKUDI</option>
+                <option value="TIRUVARUR">TIRUVARUR</option>
+                <option value="VELLORE">VELLORE</option>
+                <option value="VILLUPURAM">VILLUPURAM</option>
+                <option value="VIRUDHUNAGAR">VIRUDHUNAGAR</option>
+
+                <!-- Add more districts as needed -->
+            </select>
+
+            <input type="number" name="year" placeholder="Enter Year (e.g., 2024)" required>
+            <input type="submit" value="Predict Price">
+        </form>
+
+    {% elif prediction %}
+        <div id="results">
+            <h2>Prediction Result</h2>
+            <p><strong>Crop Type:</strong> {{ prediction[0] }}</p>
+            <p><strong>District:</strong> {{ prediction[1] }}</p>
+            <p><strong>Year:</strong> {{ prediction[2] }}</p>
+            <p><strong>Predicted Price:</strong> ₹{{ prediction[3] }} per ton</p>
+            <p><strong>Current Price:</strong> ₹{{ prediction[4] }} per ton</p>
+            <p><strong>Prediction Date:</strong> {{ prediction[5] }}</p>
+            <img src="{{ plot_path }}" alt="Prediction Plot">
+            <a href="/">Log Out</a>
+        </div>
+
+    {% else %}
+        <form action="/login" method="POST">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <input type="submit" value="Login">
+
+            <div class="form-switch">
+                <a href="#register-form" onclick="toggleRegister()">Don't have an account? Register</a>
+            </div>
+        </form>
+
+        <form id="register-form" class="hidden" action="/register" method="POST">
+            <h2>Register</h2>
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="text" name="phone" placeholder="Enter Phone Number" required>
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Register">
+        </form>
+    {% endif %}
+</div>
+
+<script>
+    function toggleRegister() {
+        const registerForm = document.getElementById('register-form');
+        const loginForm = document.querySelector('form[action="/login"]');
+        
+        if (registerForm.classList.contains('hidden')) {
+            registerForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        } else {
+            registerForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+        }
+    }
+</script>
+
+</body>
+</html>
+

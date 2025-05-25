@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>Crop: {{ crop_type }}</p>
+    <p>District: {{ district }}</p>
+    <p>Year: {{ year }}</p>
+    <p>Predicted Price: ₹{{ predicted_price }}</p>
+    <img src="{{ url_for('static', filename='prediction.png') }}" alt="Prediction Plot">
+    <br><a href="/input">Predict Again</a> | <a href="/logout">Logout</a>
+</body>
+</html>
